@@ -1,0 +1,9 @@
+# Never commit secrets or Vercel local state
+.env
+.env.*
+.vercel
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+*.log
