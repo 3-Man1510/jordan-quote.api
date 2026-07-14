@@ -15,7 +15,7 @@ ini_set('display_errors', '0');
 
 // ---------- Configuration (set these in Vercel → Settings → Environment Variables) ----------
 $RESEND_API_KEY = getenv('EMAIL_API_KEY') ?: '';
-$TO_EMAIL       = getenv('TO_EMAIL')       ?: 'you@example.com';                         // where requests are delivered
+$TO_EMAIL       = getenv('TO_EMAIL')       ?: 'emmanuelmotta1510@gmail.com';              // where requests are delivered
 $FROM_EMAIL     = getenv('FROM_EMAIL')     ?: 'Jordan Painting <onboarding@resend.dev>'; // must be a Resend-verified sender for real recipients
 $ALLOWED_ORIGIN = getenv('ALLOWED_ORIGIN') ?: '*';                                       // e.g. https://jordan-painting.vercel.app
 
