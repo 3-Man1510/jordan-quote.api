@@ -1,6 +1,9 @@
 <?php
 declare(strict_types=1);
 
+// Keep API output clean: log errors, never print PHP notices/warnings into the JSON body.
+ini_set('display_errors', '0');
+
 /**
  * POST /api/quote.php
  * Accepts a JSON body { name, email, details, phone?, service? }, validates it,
@@ -115,7 +118,7 @@ curl_setopt_array($ch, [
 $response = curl_exec($ch);
 $status   = (int) curl_getinfo($ch, CURLINFO_HTTP_CODE);
 $curlErr  = curl_error($ch);
-curl_close($ch);
+// Note: curl_close() is a no-op since PHP 8.0 and deprecated in 8.5 — intentionally omitted.
 
 if ($response === false) {
     error_log('quote.php: cURL error: ' . $curlErr);
