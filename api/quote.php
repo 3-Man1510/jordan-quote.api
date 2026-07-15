@@ -49,6 +49,14 @@ if (!is_array($data)) {
     exit;
 }
 
+// Honeypot: real users never fill the hidden "website" field; bots do.
+// Pretend success so the bot moves on, but silently drop it (no email sent).
+if (!empty($data['website'])) {
+    http_response_code(200);
+    echo json_encode(['success' => true]);
+    exit;
+}
+
 /** Trim, strip any HTML tags, and cap the length of a value. */
 function clean_field($value, int $max = 2000): string {
     $value = is_scalar($value) ? (string) $value : '';
